@@ -1,0 +1,168 @@
+/*******************************************************
+ * ROFI configs i3 Apps menu for EndeavourOS
+ * Maintainer: joekamprad <joekamprad@endeavouros.com>
+ *******************************************************/
+
+configuration {
+    font:				"Cascadia Code 12";
+    show-icons:				true;
+    icon-theme:				"Arc-X-D";
+    display-drun:			"Apps";
+    drun-display-format:		"{name}";
+    scroll-method:			0;
+    disable-history:			false;
+    sidebar-mode:			false;
+}
+/*******************************************************
+ * ROFI Arch Dark Transparent - Custom Blue Theme
+ *******************************************************/
+* {
+    selected-normal-foreground:  rgba ( 135, 206, 235, 100% );   /* #87CEEB */
+    foreground:                  rgba ( 200, 220, 255, 100% );   /* Soft Light Blue */
+    normal-foreground:           @foreground;
+    alternate-normal-background: rgba ( 30, 41, 82, 5% );        /* Transparent #1E2952 */
+    red:                         rgba ( 135, 206, 235, 100% );   /* Use blue shade for warnings too */
+    selected-urgent-foreground:  rgba ( 255, 255, 255, 100% );   /* White */
+    blue:                        rgba ( 135, 206, 235, 100% );   /* #87CEEB */
+    urgent-foreground:           rgba ( 135, 206, 235, 100% );   /* Consistent */
+    alternate-urgent-background: rgba ( 30, 41, 82, 90% );       /* #1E2952 opaque */
+    active-foreground:           rgba ( 135, 206, 235, 100% );   /* Blue highlight */
+    lightbg:                     rgba ( 220, 235, 250, 100% );   /* Very light blue */
+    selected-active-foreground:  rgba ( 255, 255, 255, 100% );   /* White */
+    alternate-active-background: rgba ( 30, 41, 82, 88% );       /* #1E2952 */
+    background:                  rgba ( 30, 41, 82, 88% );       /* #1E2952 with opacity */
+    alternate-normal-foreground: @foreground;
+    normal-background:           rgba ( 30, 41, 82, 5% );        /* Transparent background */
+    lightfg:                     rgba ( 160, 190, 215, 100% );   /* Muted Sky Blue */
+    selected-normal-background:  rgba ( 20, 30, 60, 100% );      /* Slightly darker */
+    border-color:                rgba ( 135, 206, 235, 100% );   /* Accent border */
+    spacing:                     2;
+    separatorcolor:              rgba ( 30, 41, 82, 5% );
+    urgent-background:           rgba ( 30, 41, 82, 15% );
+    selected-urgent-background:  rgba ( 50, 70, 110, 100% );     /* Medium-dark blue */
+    alternate-urgent-foreground: @urgent-foreground;
+    background-color:            rgba ( 0, 0, 20, 0% );          /* Transparent */
+    alternate-active-foreground: @active-foreground;
+    active-background:           rgba ( 25, 30, 55, 17% );
+    selected-active-background:  rgba ( 20, 25, 50, 100% );
+}
+
+
+window {
+    background-color: @background;
+    border:           0;
+    padding:          30;
+}
+listview {
+    lines:                          10;
+    columns:                        3;
+}
+mainbox {
+    border:  0;
+    padding: 0;
+}
+message {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+    padding:      1px ;
+}
+textbox {
+    text-color: @foreground;
+}
+listview {
+    fixed-height: 0;
+    border:       8px 0px 0px ;
+    border-color: @separatorcolor;
+    spacing:      8px ;
+    scrollbar:    false;
+    padding:      2px 0px 0px ;
+}
+element {
+    border:  0;
+    padding: 1px ;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.normal.normal {
+    background-color: @normal-background;
+    text-color:       @normal-foreground;
+}
+element.normal.urgent {
+    background-color: @urgent-background;
+    text-color:       @urgent-foreground;
+}
+element.normal.active {
+    background-color: @active-background;
+    text-color:       @active-foreground;
+}
+element.selected.normal {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+element.alternate.normal {
+    background-color: @alternate-normal-background;
+    text-color:       @alternate-normal-foreground;
+}
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-color: @normal-foreground;
+    handle-width: 8px ;
+    padding:      0;
+}
+mode-switcher {
+    border:       2px 0px 0px ;
+    border-color: @separatorcolor;
+}
+button {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    1px ;
+}
+case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @normal-foreground;
+}

@@ -1,0 +1,105 @@
+
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: transparent;
+  color: #cdd6f4;
+}
+
+#custom-net_speed {
+  padding: 0 10px;
+  margin: 0 5px;
+  background-color: transparent;
+  border-radius: 4px;
+  color: #0CAFFF;
+}
+
+#workspaces button {
+  padding: 0 10px;
+  color: #a6adc8;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+}
+
+#workspaces button.active {
+  color: #ffffff;
+  background-color: #0CAFFF;
+  border-bottom: 2px solid  #0CAFFF;
+}
+
+#pulseaudio.muted {
+  color: #f38ba8;
+}
+
+#clock,
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery,
+#custom-filemanager,
+#custom-bluetooth,
+#custom-app_launcher,
+#custom-keyboard-state
+#custom-lock{
+  padding: 0 10px;
+  margin: 0 5px;
+  background-color: transparent;
+  border-radius: 4px;
+  color: #0CAFFF;
+}
+
+#window {
+  color: #87CEEB;  /* Sky blue */
+  background-color: transparent;
+  padding: 0 10px;
+  margin: 0 5px;
+  border-radius: 4px;
+}
+
+@keyframes colorCycle {
+  0%   { color: #ffffff; }      /* White */
+  25%  { color: #ffcc00; }      /* Yellow */
+  50%  { color: rgb(0, 255, 0);}/* Green */
+  75%  { color: #00ffff; }      /* Cyan */
+  100% { color: #ffffff; }      /* Back to White */
+}
+
+/* Apply colorCycle to all navbar modules */
+#custom-net_speed,
+#clock,
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery,
+#custom-filemanager,
+#custom-bluetooth,
+#custom-app_launcher,
+#custom-app_firefox,
+#custom-app_discord,
+#custom-app_whatsapp,
+#custom-app_terminal,
+#custom-app_nvim,
+#custom-app_spotify,
+#custom-app_vscode,
+#window,
+#custom-keyboard-state,
+#custom-lock{
+  padding: 0 10px;
+  margin: 0 5px;
+  background-color: transparent;
+  border-radius: 4px;
+  animation: colorCycle 6s infinite linear;
+}
+#custom-lock{
+  margin-right:7px;
+
+}

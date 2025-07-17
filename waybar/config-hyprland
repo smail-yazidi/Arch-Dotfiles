@@ -1,0 +1,154 @@
+
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+
+"modules-left": [
+  "hyprland/workspaces",
+  "custom/app_firefox",
+  "custom/app_discord",
+  "custom/app_whatsapp",
+  "custom/app_spotify",
+  "custom/app_terminal",
+  "custom/app_nvim",
+  "custom/app_vscode",
+  "hyprland/window"
+],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/filemanager", "custom/bluetooth", "custom/net_speed", "cpu",  "custom/keyboard-state" , "memory", "pulseaudio", "network", "battery","custom/lock"],
+
+
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "format": "{name}",
+    "format-focused": "[{name}]",
+    "format-visible": "{name}",
+    "format-urgent": " {name}",
+    "on-click": "hyprctl dispatch workspace {name}"
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": " {:%a %d %b | %I:%M %p}"
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false,
+    "on-click": "alacritty -e btop"
+  },
+
+  "memory": {
+    "format": " {used:0.1f}G",
+    "tooltip": false,
+    "on-click": "gnome-system-monitor"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " muted",
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+
+  "custom/filemanager": {
+    "format": " files",
+    "tooltip": "Open File Manager",
+    "on-click": "thunar",
+    "interval": 3600
+  },
+
+  "custom/bluetooth": {
+    "format": "󰂯 Bluetooth",
+    "tooltip": "Open Bluetooth Manager",
+   "on-click": "kitty --class bluetooth-menu --title 'bluetooth Menu' bash -c '~/.config/hypr/scripts/bluetooth.sh'",
+    "interval": 3600
+  },
+
+
+"network": {
+  "interface": "wlan0",
+  "format-wifi": " {essid}",
+  "format-disconnected": "⚠ No Network",
+  "tooltip": true,
+  "on-click": "kitty --class wifi-menu --title 'Wi-Fi Menu' bash -c '~/.config/hypr/scripts/wifi.sh'"
+}
+,
+
+  "battery": {
+    "format": "  {capacity}%",
+    "format-charging": " {capacity}%"
+  },
+
+  "hyprland/window": {
+    "format": "   {title}",
+    "max-length": 50,
+    "tooltip": true
+  },
+
+  "custom/net_speed": {
+    "format": "{}",
+    "exec": "~/.config/hypr/scripts/net_speed.sh",
+    "interval": 1,
+    "return-type": "text",
+    "tooltip": true
+  },
+
+  "custom/app_firefox": {
+    "format": "",
+    "tooltip": "Firefox",
+    "on-click": "firefox"
+  },
+  "custom/app_discord": {
+    "format": "",
+    "tooltip": "Discord",
+    "on-click": "discord"
+  },
+  "custom/app_whatsapp": {
+    "format": "",
+    "tooltip": "WhatsApp",
+    "on-click": "wasistlos"
+  },
+  "custom/app_terminal": {
+    "format": "",
+    "tooltip": "Terminal",
+    "on-click": "kitty"
+  },
+  "custom/app_nvim": {
+  "format": "",
+  "tooltip": "Neovim",
+  "on-click": "kitty nvim"
+},
+"custom/app_spotify": {
+  "format": "",
+  "tooltip": "Spotify",
+  "on-click": "spotify"
+},
+"custom/app_vscode": {
+  "format": "",
+  "tooltip": "VSCode",
+  "on-click": "code"
+},
+
+
+
+
+
+"custom/keyboard-state": {
+  "format": " {}",
+  "tooltip": "Keyboard Layout",
+  "exec": "/home/smail/.config/hypr/scripts/kb_layout.sh",
+  "interval": 1,
+  "on-click": "/home/smail/.config/hypr/scripts/kb_layout.sh toggle"
+},
+"custom/lock": {
+    "format": "",  
+    "tooltip": "Double-click to lock screen",
+ "on-click": "hyprlock",  
+    "interval": 3600
+}
+
+
+}
+

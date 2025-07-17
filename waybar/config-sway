@@ -1,0 +1,111 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+
+"modules-left": ["sway/workspaces", "custom/app_firefox", "custom/app_discord", "custom/app_whatsapp", "custom/app_terminal", "sway/window"],
+
+  "modules-center": ["clock"],
+  "modules-right": ["custom/filemanager", "custom/bluetooth","custom/net_speed", "cpu", "memory", "pulseaudio", "network", "battery"],
+
+  "sway/workspaces": {
+    "disable-scroll": false,
+    "format": "{name}",
+    "format-focused": "[{name}]",
+    "format-visible": "{name}",
+    "format-urgent": " {name}",
+    "on-click": "swaymsg workspace {name}"
+  },
+
+  "clock": {
+  "interval": 60,
+  "format": " {:%a %d %b | %I:%M %p}"
+}
+,
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": false,
+    "on-click": "alacritty -e btop"
+  },
+
+  "memory": {
+    "format": " {used:0.1f}G",
+    "tooltip": false,
+    "on-click": "gnome-system-monitor"
+  },
+
+  "pulseaudio": {
+    "format": " {volume}%",
+    "format-muted": " muted",
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+
+  "custom/filemanager": {
+    "format": " files",
+    "tooltip": "Open File Manager",
+    "on-click": "thunar",
+    "interval": 3600
+  },
+
+  "custom/bluetooth": {
+    "format": "󰂯 Bluetooth",
+    "tooltip": "Open Bluetooth Manager",
+    "on-click": "blueman-manager",
+    "interval": 3600
+  },
+
+  "network": {
+    "interface": "wlp2s0",
+    "format-wifi": " {essid}",
+    "format-disconnected": "⚠ No Network",
+    "tooltip": true,
+    "on-click": "nm-connection-editor"
+  },
+
+  "battery": {
+    "format": "  {capacity}%",
+    "format-charging": " {capacity}%"
+  },
+
+   "sway/window": {
+    "format": "   {title}",
+    "max-length": 50,
+    "tooltip": true,
+      "id": "sway-window"
+  },
+  "custom/net_speed": {
+  "format": "{}",
+  "exec": "~/.config/waybar/net_speed.sh",
+  "interval": 1,
+  "return-type": "text",
+  "tooltip": "true"
+}
+,
+
+"custom/app_firefox": {
+  "format": "",
+  "tooltip": "Firefox",
+  "on-click": "firefox"
+},
+"custom/app_discord": {
+  "format": "",
+  "tooltip": "Discord",
+  "on-click": "discord"
+},
+"custom/app_whatsapp": {
+  "format": "",
+  "tooltip": "WhatsApp",
+  "on-click": "wasistlos"
+},
+"custom/app_terminal": {
+  "format": "",
+  "tooltip": "Terminal",
+  "on-click": "kitty"
+}
+
+
+
+
+}
+

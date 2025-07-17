@@ -1,0 +1,86 @@
+
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(30, 30, 46, 0.95);
+  color: #cdd6f4;
+}
+
+
+#custom-net_speed {
+  padding: 0 10px;
+  margin: 0 5px;
+  background-color: #45475a;
+  border-radius: 4px;
+  color: #0CAFFF;
+}
+
+
+#workspaces button {
+  padding: 0 10px;
+  color: #a6adc8;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+}
+
+#workspaces button.focused {
+  color: #ffffff;
+  background-color: #0CAFFF;
+  border-bottom: 2px solid #0CAFFF;
+}
+
+
+
+#pulseaudio.muted {
+  color: #f38ba8;
+}
+
+
+
+
+#clock,
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#battery,
+#custom-filemanager,
+#custom-bluetooth,
+#custom-app_launcher{
+  padding: 0 10px;
+  margin: 0 5px;
+  background-color: #45475a;
+  border-radius: 4px;
+  color:  #0CAFFF;
+}
+
+#sway-window {
+  color: #87CEEB;  /* Sky blue */
+  background-color:  #45475a;
+  padding: 0 10px;
+  margin: 0 5px;
+  border-radius: 4px;
+}
+#custom-app_firefox,
+#custom-app_discord,
+#custom-app_whatsapp,
+#custom-app_terminal {
+  padding: 0 10px;
+  margin: 0 5px;
+  background-color: #45475a;
+  border-radius: 4px;
+  color:  #0CAFFF;
+}
+
+#custom-app_firefox {
+  margin-left: 40px;
+  color: #FF7139;  /* Firefox brand color */
+}
+
