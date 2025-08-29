@@ -1,6 +1,9 @@
 -- ==============================
 -- Basic UI Settings
 -- ==============================
+
+
+
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.number = true
@@ -168,6 +171,8 @@ require("lazy").setup({
       vim.keymap.set("n", "<leader>f", ":Telescope find_files<CR>", { noremap = true, silent = true })
     end
   },
+
+
 
   -- Toggle Terminal
   {
