@@ -2,24 +2,18 @@
 -- Basic UI Settings
 -- ==============================
 
-
-
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.number = true
-vim.opt.relativenumber = true  -- Changed from false to true
+vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.g.mapleader = " "
-
-
-
-
-
 
 -- Disable swapfile warnings
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.writebackup = false
+vim.opt.clipboard = "unnamedplus"
 
 -- GUI Font (for GUI clients like Neovide, NVim-Qt)
 vim.opt.guifont = "FiraCode Nerd Font:h20"
@@ -50,8 +44,6 @@ require("lazy").setup({
     config = function()
       require("tokyonight").setup({})
       vim.cmd("colorscheme tokyonight")
-
-      -- Force consistent background
       vim.cmd("highlight Normal guibg=#000818")
       vim.cmd("highlight NormalNC guibg=#000818")
       vim.cmd("highlight NvimTreeNormal guibg=#000818")
@@ -73,14 +65,28 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-
-      -- TypeScript / JavaScript
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = "•",
+          source = "always",
+          severity = {
+            min = vim.diagnostic.severity.HINT,
+            max = vim.diagnostic.severity.ERROR
+          }
+        },
+        signs = false,
+        update_in_insert = true,
+        float = {
+          focusable = false,
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+        },
+      })
       lspconfig.ts_ls.setup {}
-
-      -- Python
       lspconfig.pyright.setup {}
-
-      -- Java
       lspconfig.jdtls.setup {}
     end
   },
@@ -172,8 +178,6 @@ require("lazy").setup({
     end
   },
 
-
-
   -- Toggle Terminal
   {
     "akinsho/toggleterm.nvim",
@@ -186,7 +190,29 @@ require("lazy").setup({
 
 })
 
--- Treesitter Setup
+-- Corrected and consolidated a CursorHold autocommand and Treesitter setup outside of lazy.nvim
+vim.api.nvim_create_autocmd("CursorHold", {
+  group = vim.api.nvim_create_augroup("MyLspCursorHold", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float({
+      severity = { min = vim.diagnostic.severity.HINT },
+      focusable = false,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+      header = "",
+      prefix = "",
+      scope = "line",
+    })
+  end,
+})
+-- Add this line to set the background color of the floating window
+vim.cmd("highlight NormalFloat guibg=#000818")
+
+-- Add this line to set the background color of the floating window's border
+vim.cmd("highlight FloatBorder guibg=#000818")
+-- Add this line to set the background color of the floating window
+vim.cmd("highlight NormalFloat guibg=#000818")-- Treesitter Setup
 require("nvim-treesitter.configs").setup {
   highlight = { enable = true },
   ensure_installed = { "javascript", "typescript", "lua", "html", "css", "python", "java" }
