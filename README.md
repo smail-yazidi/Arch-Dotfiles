@@ -1,7 +1,7 @@
 # 🚀 Arch Linux Dotfiles - Hyprland Rice
 
 ![Arch Linux](Images/Arch.png)
-![Neovim](Images/Vim.png)
+![Neovim](Images/Nvim.png)
 
 > A modern, minimal, and aesthetic Arch Linux configuration featuring Hyprland compositor with custom Waybar, Neovim setup, and development tools.
 
